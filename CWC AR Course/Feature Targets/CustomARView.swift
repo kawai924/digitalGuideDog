@@ -75,28 +75,20 @@ class CustomARView: ARView {
         
         scene.addAnchor(anchor)
         
+//        let touchLocation = sender.location(in: self)
+//        guard let raycastResult = arView.raycast(from: touchLocation, allowing: .estimatedPlane, alignment: .any).first else {
+//            messageLabel.displayMessage("No surface detected, try getting closer.", duration: 2.0)
+//            return
+//        }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.distanceBetweenEntities(a: anchor.position(relativeTo: nil),
                                          b: self.cameraTransform.translation)
             })
         
-                        
-                        // WORKS
-//        updateResultLabel(dst)
-        
-//        let dialog = UIAlertController(title:"My Alert", message:"distance is .", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title:"OK", style: .default, handler: {(alert:UIAlertAction!)-> Void in})
-//        dialog.addAction(okAction)
-//        UIKit.UIAlertAction(
+                     
     }
     
-//    func updateResultLabel(_ value: Float) {
-//        let cm = value * 100.0
-//        let inch = cm*0.3937007874
-//        resultLabel.text = String(format: "%.2f cm / %.2f\"", cm, inch)
-//    }
-//
      func distanceBetweenEntities(a: SIMD3<Float>,
                                            b: SIMD3<Float>) {
        
@@ -107,13 +99,10 @@ class CustomARView: ARView {
         let finalDist = sqrt((distance.x * distance.x) + (distance.y * distance.y) + (distance.z * distance.z) )
         let out = "The distance is: \(finalDist)"
          print(out)
+         messageLabel.displayMessage("No surface detected, try getting closer.", duration: 2.0)
          resultLabel.text = out
 //        distanceBetweenEntities(a: a,b: cameraTransform.translation)
 //        return finalDist
    }
     
-//    func getCameraPosition() -> Transform{
-//        let camera = cameraTransform
-//        return camera.translation
-//    }
 }
