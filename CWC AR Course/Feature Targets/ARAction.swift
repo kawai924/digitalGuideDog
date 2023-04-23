@@ -6,6 +6,4 @@ enum ARAction {
     case placeBlock(color: Color)
     case removeAllAnchors
     
-    case placeSkateboard
-    case playSkateboardAnimation
 }
