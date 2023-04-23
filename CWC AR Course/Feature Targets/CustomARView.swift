@@ -60,6 +60,7 @@ class CustomARView: ARView {
                                          b: self.cameraTransform.translation)
             })
         
+                     
     }
     
     
@@ -73,6 +74,10 @@ class CustomARView: ARView {
         let finalDist = sqrt((distance.x * distance.x) + (distance.y * distance.y) + (distance.z * distance.z) )
         let out = "The distance is: \(finalDist)"
          print(out)
+         messageLabel.displayMessage("No surface detected, try getting closer.", duration: 2.0)
+         resultLabel.text = out
+//        distanceBetweenEntities(a: a,b: cameraTransform.translation)
+//        return finalDist
    }
     
 }
